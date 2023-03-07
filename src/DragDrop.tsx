@@ -13,9 +13,13 @@ function DragDrop() {
 
   return (
     <>
-      <FileUploader handleChange={handleChange} name="file" types={fileTypes}/>
+      <FileUploader
+        handleChange={handleChange}
+        name="file"
+        types={fileTypes}
+        onDraggingStateChange={(dragging: any) => console.log("dragging=" + dragging)}
+      />
 
-      
       {file && (
         <div>
           <img
