@@ -1,11 +1,13 @@
 import { useState } from "react";
 import protractor from './protractor.png'
+import DragDrop from "./DragDrop";
 
 const Protractor = () => {
+
   const [selectedImage, setSelectedImage] = useState<File|null>(null);
   return (
     <div>
-      {selectedImage && (
+      {/* {selectedImage && (
         <div>
           <img
             alt="not found"
@@ -25,7 +27,10 @@ const Protractor = () => {
             setSelectedImage(event.target.files[0]);
           }
         }}
-      />
+      /> */}
+
+      <DragDrop/>
+
     </div>
   );
 }
