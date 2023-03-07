@@ -10,8 +10,8 @@
   transform-style: preserve-3d;
   filter: drop-shadow(5px 5px 5px #222);
   transition:
-    .4s ease-in-out transform,
-    .4s ease-in-out filter;
+    .3s ease-in-out transform,
+    .3s ease-in-out filter;
 }
 
 .tool:hover {
@@ -29,8 +29,8 @@
   transform-style: preserve-3d;
   filter: drop-shadow(5px 5px 5px #222);
   transition:
-    .4s ease-in-out transform,
-    .4s ease-in-out filter;
+    .3s ease-in-out transform,
+    .3s ease-in-out filter;
 }
 
 .tool2:hover {
