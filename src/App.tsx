@@ -8,12 +8,16 @@ function App() {
   return (
     <div className="App" style={{
       backgroundColor: 'steelblue',
-      height: '100vh',
-      width: '100vw',
-      maxHeight: '100vh',
-      maxWidth: '100vw'
+      height: '100%',
+      width: '100%',
+      maxHeight: '100%',
+      maxWidth: '100%',
+      position: 'absolute',
+      display: 'flex',
+      flexDirection: 'column'
     }}>
-      <div>
+      <div style={{flex: '1', minHeight: '50px'}}/>
+      <div style={{height:'auto', flexGrow: '1'}}>
         <div>
           <p style={{
             fontWeight: 'bold',
@@ -29,6 +33,7 @@ function App() {
           <img src={protractor} className='tool2'/>
         </div>
       </div>
+      <div style={{flex: '1', minHeight: '50px'}}/>
     </div>
   );
 }
