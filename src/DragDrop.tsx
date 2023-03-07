@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
+import Protractor from "./Protractor";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -11,6 +12,14 @@ function DragDrop() {
     setFile(file);
   };
 
+  const fileUploaderStack = (
+    <div
+      style={{  }}
+    >
+      Drop your files here
+    </div>
+  );
+
   return (
     <>
       <FileUploader
@@ -18,6 +27,7 @@ function DragDrop() {
         name="file"
         types={fileTypes}
         onDraggingStateChange={(dragging: any) => console.log("dragging=" + dragging)}
+        children={fileUploaderStack}
       />
 
       {file && (
