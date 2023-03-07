@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
-import Protractor from "./Protractor";
+import Protractor from "./protractor.png";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -14,9 +14,26 @@ function DragDrop() {
 
   const fileUploaderStack = (
     <div
-      style={{  }}
+      style={{ borderRadius: "30px", borderStyle: "solid" }}
     >
-      Drop your files here
+      <img src={Protractor} width={"200px"} />
+      {file ?
+        (
+          <div>
+            <img
+              alt="not found"
+              width="200px"
+              src={URL.createObjectURL(file)}
+            />
+          </div>
+        )
+        :
+        (
+          <div>
+            Drop your files here
+          </div>
+        )
+      }
     </div>
   );
 
@@ -29,16 +46,13 @@ function DragDrop() {
         onDraggingStateChange={(dragging: any) => console.log("dragging=" + dragging)}
         children={fileUploaderStack}
       />
-
-      {file && (
-        <div>
-          <img
-            alt="not found"
-            width="100px"
-            src={URL.createObjectURL(file)}
-          />
-        </div>
-      )}
+      {
+        file && (
+          <button onClick={(event) => { setFile(null) }}>
+            Remove files
+          </button>
+        )
+      }
     </>
   );
 }
