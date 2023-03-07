@@ -8,8 +8,6 @@ function App() {
     <div>
       <ul>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/ruler'>Ruler</Link></li>
-        <li><Link to='/protractor'>Protractor</Link></li>
       </ul>
       <Main />
     </div>
