@@ -2,37 +2,41 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Hover effect */
+.tool {
+  transform:
+    rotateX(51deg)
+    rotateZ(43deg);
+  transform-style: preserve-3d;
+  filter: drop-shadow(5px 5px 5px #222);
+  transition:
+    .4s ease-in-out transform,
+    .4s ease-in-out filter;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.tool:hover {
+  transform:
+      translate3d(0px, -40px, 0px)
+      rotateX(45deg)
+      rotateZ(40deg);
+    filter: drop-shadow(20px 30px 12px #222)
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.tool2 {
+  transform:
+    rotateX(51deg)
+    rotateZ(-20deg);
+  transform-style: preserve-3d;
+  filter: drop-shadow(5px 5px 5px #222);
+  transition:
+    .4s ease-in-out transform,
+    .4s ease-in-out filter;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tool2:hover {
+  transform:
+      translate3d(0px, -40px, 0px)
+      rotateX(45deg)
+      rotateZ(-15deg);
+    filter: drop-shadow(20px 30px 12px #222)
 }
