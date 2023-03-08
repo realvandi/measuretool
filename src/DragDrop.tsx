@@ -51,8 +51,15 @@ function DragDrop() {
         handleChange={handleChange}
         name="file"
         types={fileTypes}
-        onDraggingStateChange={(dragging: any) => console.log("dragging=" + dragging)}
+        onDraggingStateChange={(dragging: any) => console.log("dragging:" + dragging)}
         children={fileUploaderStack}
+        hoverTitle="Drop Here"
+        onDrop={(file: any) => console.log("dropped:"+file)}
+        onSelect={(file: any) => console.log("selected:"+file)}
+        dropMessageStyle={{backgroundColor: 'red'}}
+        onSizeError={(error: any)=>{console.log(error)}}
+        onTypeError={(error: any)=>{console.log(error)}}
+        label={"Drop your image here or click to upload an image"}
       />
       {
         file && (
