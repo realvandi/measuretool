@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import Protractor from "./protractor.png";
 
+import './App.css';
+
 const fileTypes = ["JPG", "PNG", "GIF"];
 
 function DragDrop() {
@@ -13,28 +15,34 @@ function DragDrop() {
   };
 
   const fileUploaderStack = (
-    <div
-      style={{ borderRadius: "30px", borderStyle: "solid" }}
-    >
-      <img src={Protractor} width={"200px"} />
-      {file ?
-        (
-          <div>
-            <img
-              alt="not found"
-              width="200px"
-              src={URL.createObjectURL(file)}
-            />
-          </div>
-        )
-        :
-        (
-          <div>
-            Drop your files here
-          </div>
-        )
+    <div className="middle-content">
+      {
+        file ?
+          (
+            <div>
+              <img
+                alt="not found"
+                width="200px"
+                src={URL.createObjectURL(file)}
+              />
+            </div >
+          )
+          :
+          (
+            <div>
+              <img src={Protractor} width={"200px"} style={{
+                display: "block",
+                marginLeft: "auto",
+                marginRight: "auto"
+              }
+              } />
+              <div>
+                Drop your files here or click to upload your file
+              </div>
+            </div>
+          )
       }
-    </div>
+    </div >
   );
 
   return (

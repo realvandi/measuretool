@@ -2,11 +2,14 @@
   text-align: center;
 }
 
+.Test {
+  background-color: blueviolet;
+}
+
 /* Hover effect */
 .tool {
   transform:
-    rotateX(51deg)
-    rotateZ(43deg);
+    rotateX(51deg) rotateZ(43deg);
   transform-style: preserve-3d;
   filter: drop-shadow(5px 5px 5px #222);
   transition:
@@ -16,16 +19,13 @@
 
 .tool:hover {
   transform:
-      translate3d(0px, -40px, 0px)
-      rotateX(45deg)
-      rotateZ(40deg);
-    filter: drop-shadow(20px 30px 12px #222)
+    translate3d(0px, -40px, 0px) rotateX(45deg) rotateZ(40deg);
+  filter: drop-shadow(20px 30px 12px #222)
 }
 
 .tool2 {
   transform:
-    rotateX(51deg)
-    rotateZ(-20deg);
+    rotateX(51deg) rotateZ(-20deg);
   transform-style: preserve-3d;
   filter: drop-shadow(5px 5px 5px #222);
   transition:
@@ -35,8 +35,17 @@
 
 .tool2:hover {
   transform:
-      translate3d(0px, -40px, 0px)
-      rotateX(45deg)
-      rotateZ(-15deg);
-    filter: drop-shadow(20px 30px 12px #222)
+    translate3d(0px, -40px, 0px) rotateX(45deg) rotateZ(-15deg);
+  filter: drop-shadow(20px 30px 12px #222)
+}
+
+/* Middle Content */
+.middle-content {
+  border-radius: 30px;
+  border-style: solid;
+  padding: 1em;
+  margin: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
