@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import protractor from './protractor.png'
 import DragDrop from "./DragDrop";
+import ProtractorPoint from "./ProtractorPoint";
+import ProtractorPointSecond from "./ProtractorPointSecond";
 
 const Protractor = () => {
 
-  const [selectedImage, setSelectedImage] = useState<File|null>(null);
+  const box1Ref = useRef(null);
+  const box2Ref = useRef(null);
+
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
   return (
     <div>
       {/* {selectedImage && (
@@ -28,8 +33,29 @@ const Protractor = () => {
           }
         }}
       /> */}
+      <div ref={box1Ref}>
+        <ProtractorPoint />
+      </div>
+      <div ref={box2Ref}>
+        <ProtractorPointSecond />
+      </div>
 
-      <DragDrop/>
+      <StraightLine
+        startingElement={{
+          ref: box1Ref,
+          x: "right",
+          y: "mid",
+        }}
+        endingElement={{
+          ref: box2Ref,
+          x: "center",
+          y: "top",
+        }}
+        style={{ backgroundColor: "red" }}
+        className="beautiful-class-name"
+      />
+
+      <DragDrop />
 
     </div>
   );
