@@ -1,8 +1,9 @@
 import { useRef, useState } from "react";
 import protractor from './protractor.png'
 import DragDrop from "./DragDrop";
-import ProtractorPoint from "./ProtractorPoint";
-import ProtractorPointSecond from "./ProtractorPointSecond";
+
+const reactDrawLine = require('react-drawline');
+const { StraightLine } = reactDrawLine;
 
 const Protractor = () => {
 
@@ -34,10 +35,8 @@ const Protractor = () => {
         }}
       /> */}
       <div ref={box1Ref}>
-        <ProtractorPoint />
       </div>
       <div ref={box2Ref}>
-        <ProtractorPointSecond />
       </div>
 
       <StraightLine
