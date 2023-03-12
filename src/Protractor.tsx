@@ -34,21 +34,23 @@ const Protractor = () => {
           }
         }}
       /> */}
-      <div ref={box1Ref}>
+      <div ref={box1Ref} style={{ position: 'absolute', left: '100px', top: '200px'}}>
+        O
       </div>
-      <div ref={box2Ref}>
+      <div ref={box2Ref} style={{ position: 'absolute', left: '250px', top: '400px'}}>
+        O
       </div>
 
       <StraightLine
         startingElement={{
           ref: box1Ref,
-          x: "right",
+          x: "center",
           y: "mid",
         }}
         endingElement={{
           ref: box2Ref,
           x: "center",
-          y: "top",
+          y: "mid",
         }}
         style={{ backgroundColor: "red" }}
         className="beautiful-class-name"
