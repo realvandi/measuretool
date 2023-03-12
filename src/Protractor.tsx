@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import protractor from './protractor.png'
 import DragDrop from "./DragDrop";
 
@@ -11,6 +11,26 @@ const Protractor = () => {
   const box2Ref = useRef(null);
 
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [coords, setCoords] = useState({x: 0, y: 0});
+
+  useEffect(() => {
+    const handleWindowMouseMove = (event: { clientX: any; clientY: any; }) => {
+      setCoords({
+        x: event.clientX,
+        y: event.clientY,
+      });
+    };
+    window.addEventListener('mousemove', handleWindowMouseMove);
+
+    return () => {
+      window.removeEventListener(
+        'mousemove',
+        handleWindowMouseMove,
+      );
+    };
+  }, []);
+
+
   return (
     <div>
       {/* {selectedImage && (
@@ -24,6 +44,11 @@ const Protractor = () => {
         </div>
       )}
        */}
+
+       <div>
+        Coord: {coords.x}, {coords.y}
+       </div>
+
       <div ref={box1Ref} style={{ position: 'absolute', left: '100px', top: '200px'}}>
         O
       </div>
