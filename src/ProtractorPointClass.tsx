@@ -1,5 +1,6 @@
 import React, { SetStateAction } from "react";
 import position from "./GeneralTypes";
+import generateRandomInteger from "./Tools";
 
 type ProtractorPointProps = {
     position: position
@@ -13,7 +14,7 @@ type ProtractorPointState = {
 class ProtractorPointClass extends React.Component<ProtractorPointProps, ProtractorPointState> {
 
     state: ProtractorPointState = {
-        position: { x: this.props.position.x, y: this.props.position.y },
+        position: {x: generateRandomInteger(0,500), y: generateRandomInteger(0,500)},
         selected: false
     };
 
@@ -28,7 +29,7 @@ class ProtractorPointClass extends React.Component<ProtractorPointProps, Protrac
             <>
                 <div style={{ position: 'absolute', left: this.state.position.x, top: this.state.position.y }}
                 onClick={(e)=>{this.state.selected = !this.state.selected}}>
-                    D
+                    X
                     {this.state.position.x},{this.state.position.y}
                 </div>
             </>
