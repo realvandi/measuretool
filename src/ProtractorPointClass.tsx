@@ -1,9 +1,10 @@
-import React, { SetStateAction } from "react";
+import React from "react";
 import position from "./GeneralTypes";
 import generateRandomInteger from "./Tools";
 
 type ProtractorPointProps = {
-    position: position
+    position: position,
+    forwardedRef: React.RefObject<HTMLDivElement> // add the forwardedRef prop
 }
 
 type ProtractorPointState = {
@@ -28,14 +29,13 @@ class ProtractorPointClass extends React.Component<ProtractorPointProps, Protrac
         return (
             <>
                 <div style={{ position: 'absolute', left: this.state.position.x, top: this.state.position.y }}
-                onClick={(e)=>{this.state.selected = !this.state.selected}}>
+                onClick={(e)=>{this.state.selected = !this.state.selected}}
+                ref={this.props.forwardedRef}> 
                     X
-                    {this.state.position.x},{this.state.position.y}
                 </div>
-            </>
-        )
+                </>
+        );
     }
-
 }
 
 export default ProtractorPointClass;

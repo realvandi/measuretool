@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import protractor from './protractor.png'
 import DragDrop from "./DragDrop";
-import ProtractorPoint from "./ProtractorPoint";
 import ProtractorPointClass from "./ProtractorPointClass";
 import position from "./GeneralTypes";
 
@@ -12,8 +10,7 @@ const Protractor = () => {
 
   const box1Ref = useRef(null);
   const box2Ref = useRef(null);
-  const box3Ref = useRef(null);
-  const box4Ref = useRef(null);
+  const lineRef = useRef(null); // new ref for the straight line
 
   const [mouseCoords, setMouseCoords] = useState<position>({x: 0, y: 0});
 
@@ -42,25 +39,26 @@ const Protractor = () => {
         Coord: {mouseCoords.x}, {mouseCoords.y}
        </div>
 
-      {/* <StraightLine
+      <StraightLine
         startingElement={{
-          ref: box3Ref,
+          ref: box1Ref,
           x: "center",
           y: "mid",
         }}
         endingElement={{
-          ref: box4Ref,
+          ref: box2Ref,
           x: "center",
           y: "mid",
         }}
         style={{ backgroundColor: "red" }}
         className="beautiful-class-name"
-      /> */}
+        ref={lineRef} // pass the new ref to the straight line
+      />
 
       <DragDrop />
 
-      <ProtractorPointClass position={mouseCoords}/>
-      <ProtractorPointClass position={mouseCoords}/>
+      <ProtractorPointClass position={mouseCoords} forwardedRef={box1Ref}/> // pass the new refs to the ProtractorPointClass components
+      <ProtractorPointClass position={mouseCoords} forwardedRef={box2Ref}/>
 
     </div>
   );
