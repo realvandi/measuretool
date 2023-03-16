@@ -5,9 +5,6 @@ import ProtractorPoint from "./ProtractorPoint";
 import ProtractorPointClass from "./ProtractorPointClass";
 import position from "./GeneralTypes";
 
-const reactDrawLine = require('react-drawline');
-const { StraightLine } = reactDrawLine;
-
 const Protractor = () => {
 
   const box1Ref = useRef(null);
