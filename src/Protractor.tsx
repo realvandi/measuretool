@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import DragDrop from "./DragDrop";
 import ProtractorPointClass from "./ProtractorPointClass";
 import position from "./GeneralTypes";
+import Xarrow, { Xwrapper } from "react-xarrows";
+import DraggableBox from "./Draggablebox";
 
 const Protractor = () => {
 
@@ -38,6 +40,12 @@ const Protractor = () => {
 
       <ProtractorPointClass position={mouseCoords}/>
       <ProtractorPointClass position={mouseCoords}/>
+
+      <Xwrapper>
+            <DraggableBox id={'comp1'}/>
+            <DraggableBox id={'comp2'}/>
+            <Xarrow start={'comp1'} end={'comp2'}/>
+        </Xwrapper>
 
     </div>
   );
