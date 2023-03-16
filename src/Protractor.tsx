@@ -39,11 +39,11 @@ const Protractor = () => {
       <ProtractorPointClass position={mouseCoords}/>
 
       <Xwrapper>
-            <DraggableBox id={'comp1'}/>
-            <DraggableBox id={'comp2'}/>
-            <DraggableBox id={'comp3'}/>
-            <Xarrow start={'comp1'} end={'comp2'} path="straight" showHead={false}/>
-            <Xarrow start={'comp2'} end={'comp3'} path="straight" showHead={false}/>
+            <DraggableBox id={'1'}/>
+            <DraggableBox id={'2'}/>
+            <DraggableBox id={'3'}/>
+            <Xarrow start={'1'} end={'2'} path="straight" showHead={false}/>
+            <Xarrow start={'2'} end={'3'} path="straight" showHead={false}/>
         </Xwrapper>
 
     </div>
