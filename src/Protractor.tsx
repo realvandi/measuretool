@@ -7,9 +7,6 @@ import DraggableBox from "./Draggablebox";
 
 const Protractor = () => {
 
-  const box1Ref = useRef(null);
-  const box2Ref = useRef(null);
-
   const [mouseCoords, setMouseCoords] = useState<position>({x: 0, y: 0});
 
   useEffect(() => {
