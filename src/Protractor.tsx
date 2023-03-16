@@ -44,7 +44,9 @@ const Protractor = () => {
       <Xwrapper>
             <DraggableBox id={'comp1'}/>
             <DraggableBox id={'comp2'}/>
-            <Xarrow start={'comp1'} end={'comp2'}/>
+            <DraggableBox id={'comp3'}/>
+            <Xarrow start={'comp1'} end={'comp2'} path="straight" showHead={false}/>
+            <Xarrow start={'comp2'} end={'comp3'} path="straight" showHead={false}/>
         </Xwrapper>
 
     </div>
