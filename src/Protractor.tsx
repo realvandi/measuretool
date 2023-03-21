@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import DragDrop from "./DragDrop";
-import ProtractorPointClass from "./ProtractorPointClass";
 import position from "./GeneralTypes";
 import Xarrow, { Xwrapper } from "react-xarrows";
 import DraggableBox from "./Draggablebox";
@@ -35,9 +34,6 @@ const Protractor = () => {
 
       <DragDrop />
 
-      <ProtractorPointClass position={mouseCoords}/>
-      <ProtractorPointClass position={mouseCoords}/>
-
       <Xwrapper>
             <DraggableBox id={'1'}/>
             <DraggableBox id={'2'}/>
@@ -45,7 +41,6 @@ const Protractor = () => {
             <Xarrow start={'1'} end={'2'} path="straight" showHead={false}/>
             <Xarrow start={'2'} end={'3'} path="straight" showHead={false}/>
         </Xwrapper>
-
     </div>
   );
 }
