@@ -38,8 +38,8 @@ const Protractor = () => {
             <DraggableBox id={'1'}/>
             <DraggableBox id={'2'}/>
             <DraggableBox id={'3'}/>
-            <Xarrow start={'1'} end={'2'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'}/>
-            <Xarrow start={'2'} end={'3'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'}/>
+            <Xarrow start={'1'} end={'2'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'} animateDrawing={true}/>
+            <Xarrow start={'3'} end={'2'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'} animateDrawing={true}/>
         </Xwrapper>
     </div>
   );
