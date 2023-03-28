@@ -9,6 +9,7 @@ type DraggableBoxProps = {
 
 const onDragHandler: DraggableEventHandler = (event, data) => {
     console.log("Point Location: " + data.x + ',' + data.y)
+
 }
 
 const DraggableBox = ({ id }: DraggableBoxProps) => {
