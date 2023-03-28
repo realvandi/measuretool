@@ -7,6 +7,7 @@ type DraggableBoxProps = {
     id: string
 }
 
+//Curried function
 const onDragHandler = (id: string): DraggableEventHandler => (event, data) => {
     console.log(`ID: ${id}, Point Location: ${data.x},${data.y}`);
 }
