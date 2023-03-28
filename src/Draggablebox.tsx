@@ -7,9 +7,8 @@ type DraggableBoxProps = {
     id: string
 }
 
-const onDragHandler: DraggableEventHandler = (event, data) => {
-    console.log("Point Location: " + data.x + ',' + data.y)
-
+const onDragHandler = (id: string): DraggableEventHandler => (event, data) => {
+    console.log(`ID: ${id}, Point Location: ${data.x},${data.y}`);
 }
 
 const DraggableBox = ({ id }: DraggableBoxProps) => {
@@ -18,7 +17,7 @@ const DraggableBox = ({ id }: DraggableBoxProps) => {
 
     return (
         <>
-            <Draggable onDrag={onDragHandler} defaultPosition={{ x: generateRandomInteger(0, 500), y: generateRandomInteger(0, 500) }}>
+            <Draggable onDrag={onDragHandler(id)} defaultPosition={{ x: generateRandomInteger(0, 500), y: generateRandomInteger(0, 500) }}>
                 <div id={id} 
                   className="draggableButton"
                 >

@@ -22,7 +22,7 @@ function DragDrop() {
             <div>
               <img
                 alt="not found"
-                width="200px"
+                width="300px"
                 src={URL.createObjectURL(file)}
               />
             </div >
