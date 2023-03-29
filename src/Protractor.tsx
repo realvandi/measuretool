@@ -3,11 +3,13 @@ import DragDrop from "./DragDrop";
 import Xarrow, { Xwrapper } from "react-xarrows";
 import DraggableBox from "./Draggablebox";
 import { PointDictionary, position } from "./GeneralTypes";
+import { getAngle } from "./Tools";
 
 const Protractor = () => {
 
   const [mouseCoords, setMouseCoords] = useState<position>({ x: 0, y: 0 });
   const [pointDictionary, setPointDictionary] = useState<PointDictionary>({});
+  const [angle, setAngle] = useState<number>(0);
 
   useEffect(() => {
     const handleWindowMouseMove = (event: { clientX: any; clientY: any; }) => {
@@ -26,6 +28,17 @@ const Protractor = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const firstPointPosition = pointDictionary['1'];
+    const secondPointPosition = pointDictionary['2'];
+    const thirdPointPosition = pointDictionary['3'];
+
+    if(firstPointPosition && secondPointPosition && thirdPointPosition) {
+      setAngle(getAngle(firstPointPosition, secondPointPosition, thirdPointPosition))
+    }
+    
+  },[pointDictionary])
+
 
   return (
     <div>
@@ -39,6 +52,9 @@ const Protractor = () => {
               {id} = {position.x}, {position.y}
             </li>
           ))}
+          <li>
+            Angle = {angle}
+          </li>
         </ul>
       }
 

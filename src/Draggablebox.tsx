@@ -1,9 +1,9 @@
 import Draggable, { DraggableData, DraggableEventHandler } from "react-draggable";
 import { useXarrow } from "react-xarrows";
-import generateRandomInteger from "./Tools";
 import './styles.css';
 import { PointDictionary, position } from "./GeneralTypes";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
+import { generateRandomInteger } from "./Tools";
 
 type DraggableBoxProps = {
     id: string
@@ -29,6 +29,13 @@ const DraggableBox = ({ id, pointDictionary, setPointDictionary }: DraggableBoxP
 
     useXarrow();
 
+    const xDefaultPosition = generateRandomInteger(0,500);
+    const yDefaultPosition = generateRandomInteger(0,500);
+
+    useEffect(() => {
+        setPointDictionary(prevState => ({ ...prevState, [id]: {x: xDefaultPosition, y: yDefaultPosition} }));
+    },[])
+
     /* TODO: Learn React useCallback() */
     const onDragHandler = useCallback(
         (event: any, data: any) => {
@@ -41,7 +48,7 @@ const DraggableBox = ({ id, pointDictionary, setPointDictionary }: DraggableBoxP
 
     return (
         <>
-            <Draggable onDrag={onDragHandler} defaultPosition={{ x: generateRandomInteger(0, 500), y: generateRandomInteger(0, 500) }}>
+            <Draggable onDrag={onDragHandler} defaultPosition={{ x: xDefaultPosition, y: yDefaultPosition }}>
                 <div id={id} 
                   className="draggableButton"
                 >
