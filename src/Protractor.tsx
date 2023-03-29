@@ -11,6 +11,8 @@ const Protractor = () => {
   const [pointDictionary, setPointDictionary] = useState<PointDictionary>({});
   const [angle, setAngle] = useState<number>(0);
 
+  const [file, setFile] = useState<File | null>(null);
+
   useEffect(() => {
     const handleWindowMouseMove = (event: { clientX: any; clientY: any; }) => {
       setMouseCoords({
@@ -33,11 +35,11 @@ const Protractor = () => {
     const secondPointPosition = pointDictionary['2'];
     const thirdPointPosition = pointDictionary['3'];
 
-    if(firstPointPosition && secondPointPosition && thirdPointPosition) {
+    if (firstPointPosition && secondPointPosition && thirdPointPosition) {
       setAngle(getAngle(firstPointPosition, secondPointPosition, thirdPointPosition))
     }
-    
-  },[pointDictionary])
+
+  }, [pointDictionary])
 
 
   return (
@@ -59,6 +61,15 @@ const Protractor = () => {
       }
 
       <DragDrop />
+
+      {
+        pointDictionary['2'] ?
+          <div style={{ position: 'absolute', left: pointDictionary['2'].x, top: pointDictionary['2'].y,
+          width: '1em', height: '1em' }}>
+            {angle}
+          </div>
+          : null
+      }
 
       <Xwrapper>
         <DraggableBox id={'1'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
