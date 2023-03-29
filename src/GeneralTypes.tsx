@@ -1,9 +1,9 @@
-type position = {
+export type position = {
     x: number,
     y: number
 }
 
-type ProtractorPointPosition = {
+export type ProtractorPointPosition = {
     next?: number,
     prev?: number,
     id: number,
@@ -11,4 +11,6 @@ type ProtractorPointPosition = {
     y: number
 }
 
-export default position;
+export type PointDictionary = {
+    [id: string]: position
+}
