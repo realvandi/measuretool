@@ -4,7 +4,7 @@ import Protractor from "./protractor.png";
 
 import './App.css';
 
-const fileTypes = ["JPG", "PNG", "GIF"];
+const fileTypes = ["JPG", "PNG", "GIF", "JPEG"];
 
 function DragDrop() {
 
