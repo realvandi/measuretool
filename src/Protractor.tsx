@@ -4,6 +4,7 @@ import Xarrow, { Xwrapper } from "react-xarrows";
 import DraggableBox from "./Draggablebox";
 import { PointDictionary, position } from "./GeneralTypes";
 import { getAngle } from "./Tools";
+import AngleArc from "./AngleArc";
 
 const Protractor = () => {
 
@@ -45,7 +46,7 @@ const Protractor = () => {
 
 
   return (
-    <div style={{position: 'absolute'}}>
+    <div style={{ position: 'absolute' }}>
       <div>
         Coord: {mouseCoords.x}, {mouseCoords.y}
       </div>
@@ -62,7 +63,7 @@ const Protractor = () => {
         </ul>
       }
 
-      <DragDrop/>
+      <DragDrop />
 
       {
         pointDictionary['2'] ?
@@ -75,15 +76,16 @@ const Protractor = () => {
           : null
       }
 
-      <div style={{position: 'absolute'}}>
+      <div style={{ position: 'absolute' }}>
         <Xwrapper>
           <DraggableBox id={'1'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
           <DraggableBox id={'2'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
           <DraggableBox id={'3'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
-          <Xarrow start={'1'} end={'2'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'}/>
-          <Xarrow start={'3'} end={'2'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'}/>
+          <Xarrow start={'1'} end={'2'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'} />
+          <Xarrow start={'3'} end={'2'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'} />
         </Xwrapper>
       </div>
+
     </div>
   );
 }

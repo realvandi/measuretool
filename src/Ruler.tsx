@@ -1,4 +1,11 @@
+import AngleArc from "./AngleArc";
+
 const Ruler = () => {
-  return <p>Ruler</p>;
+  return (
+    <div>
+      <p>Ruler</p>
+      <AngleArc></AngleArc>
+    </div>
+  );
 }
 export default Ruler;
