@@ -13,6 +13,8 @@ const Protractor = () => {
 
   const [file, setFile] = useState<File | null>(null);
 
+  const yPointOffsetMagicNumber = 160;
+
   useEffect(() => {
     const handleWindowMouseMove = (event: { clientX: any; clientY: any; }) => {
       setMouseCoords({
@@ -65,7 +67,7 @@ const Protractor = () => {
       {
         pointDictionary['2'] ?
           <div style={{
-            position: 'absolute', left: pointDictionary['2'].x, top: pointDictionary['2'].y,
+            position: 'absolute', left: pointDictionary['2'].x, top: pointDictionary['2'].y + yPointOffsetMagicNumber,
             width: '1em', height: '1em'
           }}>
             {angle}
