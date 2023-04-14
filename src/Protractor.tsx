@@ -43,7 +43,7 @@ const Protractor = () => {
 
 
   return (
-    <div>
+    <div style={{position: 'absolute'}}>
       <div>
         Coord: {mouseCoords.x}, {mouseCoords.y}
       </div>
@@ -60,24 +60,28 @@ const Protractor = () => {
         </ul>
       }
 
-      <DragDrop />
+      <DragDrop/>
 
       {
         pointDictionary['2'] ?
-          <div style={{ position: 'absolute', left: pointDictionary['2'].x, top: pointDictionary['2'].y,
-          width: '1em', height: '1em' }}>
+          <div style={{
+            position: 'absolute', left: pointDictionary['2'].x, top: pointDictionary['2'].y,
+            width: '1em', height: '1em'
+          }}>
             {angle}
           </div>
           : null
       }
 
-      <Xwrapper>
-        <DraggableBox id={'1'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
-        <DraggableBox id={'2'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
-        <DraggableBox id={'3'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
-        <Xarrow start={'1'} end={'2'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'} animateDrawing={true} />
-        <Xarrow start={'3'} end={'2'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'} animateDrawing={true} />
-      </Xwrapper>
+      <div style={{position: 'absolute'}}>
+        <Xwrapper>
+          <DraggableBox id={'1'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
+          <DraggableBox id={'2'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
+          <DraggableBox id={'3'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
+          <Xarrow start={'1'} end={'2'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'}/>
+          <Xarrow start={'3'} end={'2'} path="straight" showHead={false} startAnchor={'middle'} endAnchor={'middle'}/>
+        </Xwrapper>
+      </div>
     </div>
   );
 }

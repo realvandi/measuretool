@@ -47,7 +47,7 @@ const DraggableBox = ({ id, pointDictionary, setPointDictionary }: DraggableBoxP
       );
 
     return (
-        <>
+        <div>
             <Draggable onDrag={onDragHandler} defaultPosition={{ x: xDefaultPosition, y: yDefaultPosition }}>
                 <div id={id} 
                   className="draggableButton"
@@ -57,7 +57,7 @@ const DraggableBox = ({ id, pointDictionary, setPointDictionary }: DraggableBoxP
                     </div>
                 </div>
             </Draggable>
-        </>
+        </div>
     );
 };
 

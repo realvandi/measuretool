@@ -46,7 +46,7 @@ function DragDrop() {
   );
 
   return (
-    <>
+    <div style={{position: 'absolute'}}>
       <FileUploader
         handleChange={handleChange}
         name="file"
@@ -68,7 +68,7 @@ function DragDrop() {
           </button>
         )
       }
-    </>
+    </div>
   );
 }
 
