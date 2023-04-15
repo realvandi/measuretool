@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import QuickSettings from "quicksettings";
 import './App.css'
-import { getArcPath } from "./Tools";
+import { getAngle, getArcPath } from "./Tools";
 import { PointDictionary, position } from "./GeneralTypes";
 
 type ArcType = {
@@ -20,9 +20,10 @@ type AngleArcProps = {
   xPos: number
   yPos: number
   angle: number
+  pointDic: PointDictionary
 }
 
-const AngleArc = ({xPos, yPos, angle}: AngleArcProps) => {
+const AngleArc = ({xPos, yPos, angle, pointDic}: AngleArcProps) => {
   const [arc, setArc] = useState<ArcType>({
     shape: null,
     path: null,
@@ -62,8 +63,10 @@ const AngleArc = ({xPos, yPos, angle}: AngleArcProps) => {
     console.log("Arc location updated")
     arc.cx = xPos
     arc.cy = yPos
+    arc.sweepAngle = angle
+    arc.startAngle = getAngle(pointDic['1'], pointDic['2'], {x:pointDic['2'].x + 10, y:pointDic['2'].y}) + 180
     update()
-  },[xPos, yPos])
+  },[xPos, yPos, angle, pointDic])
 
   // Update the arc whenever the settings change
   function update() {

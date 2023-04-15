@@ -88,7 +88,7 @@ const Protractor = () => {
 
       {
       pointDictionary['2'] != null ?
-        <AngleArc xPos={pointDictionary['2'].x} yPos={pointDictionary['2'].y} angle={angle}></AngleArc> : null
+        <AngleArc xPos={pointDictionary['2'].x} yPos={pointDictionary['2'].y} angle={angle} pointDic={pointDictionary}></AngleArc> : null
       }
 
     </div>
