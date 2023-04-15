@@ -64,7 +64,7 @@ const AngleArc = ({xPos, yPos, angle, pointDic}: AngleArcProps) => {
     arc.cx = xPos
     arc.cy = yPos
     arc.sweepAngle = angle
-    arc.startAngle = getAngle(pointDic['1'], pointDic['2'], {x:pointDic['2'].x + 10, y:pointDic['2'].y}) + 180
+    arc.startAngle = getAngle({x:pointDic['2'].x, y:pointDic['2'].y + 100}, pointDic['2'], pointDic['1'] ) + 180
     update()
   },[xPos, yPos, angle, pointDic])
 
