@@ -4,7 +4,6 @@ const Ruler = () => {
   return (
     <div>
       <p>Ruler</p>
-      <AngleArc></AngleArc>
     </div>
   );
 }

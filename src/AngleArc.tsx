@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import QuickSettings from "quicksettings";
 import './App.css'
 import { getArcPath } from "./Tools";
+import { PointDictionary, position } from "./GeneralTypes";
 
 type ArcType = {
   shape: SVGEllipseElement | null;
@@ -15,19 +16,26 @@ type ArcType = {
   ry: number;
 };
 
-const AngleArc: React.FC = () => {
+type AngleArcProps = {
+  xPos: number
+  yPos: number
+  angle: number
+}
 
+const AngleArc = ({xPos, yPos, angle}: AngleArcProps) => {
   const [arc, setArc] = useState<ArcType>({
     shape: null,
     path: null,
     showStroke: false,
     startAngle: 0,
     sweepAngle: 135,
-    cx: 500,
-    cy: 500,
-    rx: 250,
-    ry: 250,
+    cx: xPos,
+    cy: yPos,
+    rx: 100,
+    ry: 100,
   });
+
+  const [arcPos, setArcPos] = useState<position>({x:xPos,y:yPos});
 
   // Add useRef hooks for the shape and path elements
   const shapeRef = useRef<SVGEllipseElement | null>(null);
@@ -45,13 +53,17 @@ const AngleArc: React.FC = () => {
       QuickSettings.create(5, 5, "Arc Settings")
       .bindRange("startAngle", -360, 360, arc.startAngle, 1, arc)
       .bindRange("sweepAngle", -360, 360, arc.sweepAngle, 1, arc)
-      .bindRange("rx", 0, 480, arc.rx, 1, arc)
-      .bindRange("ry", 0, 480, arc.ry, 1, arc)
       .bindBoolean("showStroke", arc.showStroke, arc)
       .setGlobalChangeHandler(update);
     }
-
   }, [arc.shape, arc.path]);
+
+  useEffect(() => {
+    console.log("Arc location updated")
+    arc.cx = xPos
+    arc.cy = yPos
+    update()
+  },[xPos, yPos])
 
   // Update the arc whenever the settings change
   function update() {
@@ -69,7 +81,7 @@ const AngleArc: React.FC = () => {
   }
 
   return (
-    <svg className="arc-svg" >
+    <svg className="arc-svg" style={{zIndex:-1}}>
       <ellipse id="arc-shape" ref={shapeRef} />
       <path id="arc-path" ref={pathRef} />
     </svg>
