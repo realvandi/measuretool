@@ -53,14 +53,15 @@ const AngleArc = ({xPos, yPos, angle, pointDic}: AngleArcProps) => {
       shape: shapeRef.current,
       path: pathRef.current,
     });
-    if(arc.shape != null && arc.path != null && arc != null)
-    {
-      QuickSettings.create(5, 5, "Arc Settings")
-      .bindRange("startAngle", -360, 360, arc.startAngle, 1, arc)
-      .bindRange("sweepAngle", -360, 360, arc.sweepAngle, 1, arc)
-      .bindBoolean("showStroke", arc.showStroke, arc)
-      .setGlobalChangeHandler(update);
-    }
+    //Arc shape debug tool
+    // if(arc.shape != null && arc.path != null && arc != null)
+    // {
+    //   QuickSettings.create(5, 5, "Arc Settings")
+    //   .bindRange("startAngle", -360, 360, arc.startAngle, 1, arc)
+    //   .bindRange("sweepAngle", -360, 360, arc.sweepAngle, 1, arc)
+    //   .bindBoolean("showStroke", arc.showStroke, arc)
+    //   .setGlobalChangeHandler(update);
+    // }
   }, [arc.shape, arc.path]);
 
   useEffect(() => {
