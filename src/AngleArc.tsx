@@ -23,6 +23,10 @@ type AngleArcProps = {
   pointDic: PointDictionary
 }
 
+/* Arc offset magic numbers */
+const arcXOffset = 17.5
+const arcYOffset = 16
+
 const AngleArc = ({xPos, yPos, angle, pointDic}: AngleArcProps) => {
   const [arc, setArc] = useState<ArcType>({
     shape: null,
@@ -61,8 +65,8 @@ const AngleArc = ({xPos, yPos, angle, pointDic}: AngleArcProps) => {
 
   useEffect(() => {
     console.log("Arc location updated")
-    arc.cx = xPos
-    arc.cy = yPos
+    arc.cx = xPos + arcXOffset
+    arc.cy = yPos + arcYOffset
     arc.sweepAngle = angle
     arc.startAngle = getAngle({x:pointDic['2'].x, y:pointDic['2'].y + 100}, pointDic['2'], pointDic['1'] ) + 180
     update()
