@@ -14,8 +14,8 @@ function DragDrop() {
   const handleChange = async (file: React.SetStateAction<File | null>) => {
 
     const options = {
-      maxSizeMB: 0.7,
-      maxWidthOrHeight: 1000,
+      maxSizeMB: 0.5,
+      maxWidthOrHeight: 800,
       useWebWorker: true,
     }
 
