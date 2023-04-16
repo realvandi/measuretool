@@ -46,6 +46,7 @@ function DragDrop() {
       }
     } else {
       console.log("Image file is null");
+      setFile(null);
     }
     // console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
     // console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
@@ -106,7 +107,7 @@ function DragDrop() {
       />
       {
         file && (
-          <button onClick={(event) => { setFile(null) }}>
+          <button onClick={(event) => { handleChange(null) }}>
             Remove files
           </button>
         )
