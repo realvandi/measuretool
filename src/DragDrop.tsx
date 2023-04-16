@@ -3,6 +3,7 @@ import { FileUploader } from "react-drag-drop-files";
 import Protractor from "./protractor.png";
 
 import './App.css';
+import imageCompression from "browser-image-compression";
 
 const fileTypes = ["JPG", "PNG", "GIF", "JPEG"];
 
@@ -10,8 +11,50 @@ function DragDrop() {
 
   const [file, setFile] = useState<File | null>(null);
 
-  const handleChange = (file: React.SetStateAction<File | null>) => {
-    setFile(file);
+  const handleChange = async (file: React.SetStateAction<File | null>) => {
+
+    const options = {
+      maxSizeMB: 0.7,
+      maxWidthOrHeight: 1000,
+      useWebWorker: true,
+    }
+
+    console.log("Checking file integrity..");
+
+    const imageFile: File = file as File;
+    console.log("Image file:"+imageFile)
+
+    if(imageFile != null) {
+      if (imageFile == null) {
+        console.log("Error: Could not find file, or file is incorrect.")
+        return
+      }
+
+      try {
+        if (imageFile != null) {
+          console.log("Uploading image..")
+          const compressedFile = await imageCompression(imageFile, options);
+          console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+          console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+  
+          // await uploadToServer(compressedFile); // write your own logic
+          console.log("Setting file image to compressed image..")
+          await setFile(compressedFile);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      console.log("Image file is null");
+    }
+    // console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
+    // console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
+
+
+
+
+    
+
   };
 
   const fileUploaderStack = (
@@ -46,7 +89,7 @@ function DragDrop() {
   );
 
   return (
-    <div style={{position: 'relative', width: '100vw', left: '50%', transform: 'translate(-50%,0%)'}}>
+    <div style={{ position: 'absolute'}}>
       <FileUploader
         handleChange={handleChange}
         name="file"
@@ -54,11 +97,11 @@ function DragDrop() {
         onDraggingStateChange={(dragging: any) => console.log("dragging:" + dragging)}
         children={fileUploaderStack}
         hoverTitle="Drop Here"
-        onDrop={(file: any) => console.log("dropped:"+file)}
-        onSelect={(file: any) => console.log("selected:"+file)}
-        dropMessageStyle={{backgroundColor: 'red'}}
-        onSizeError={(error: any)=>{console.log(error)}}
-        onTypeError={(error: any)=>{console.log(error)}}
+        onDrop={(file: any) => console.log("dropped:" + file)}
+        onSelect={(file: any) => console.log("selected:" + file)}
+        dropMessageStyle={{ backgroundColor: 'red' }}
+        onSizeError={(error: any) => { console.log(error) }}
+        onTypeError={(error: any) => { console.log(error) }}
         label={"Drop your image here or click to upload an image"}
       />
       {
