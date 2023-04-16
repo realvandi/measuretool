@@ -46,10 +46,10 @@ const Protractor = () => {
 
 
   return (
-    <div style={{ position: 'absolute' }}>
-      <div>
+    <div style={{ position: 'absolute', left: "50%", transform: "translate(50%, 0%)"}}>
+      {/* <div>
         Coord: {mouseCoords.x}, {mouseCoords.y}
-      </div>
+      </div> */}
       {/* {
         <ul>
           {Object.entries(pointDictionary).map(([id, position]) => (
