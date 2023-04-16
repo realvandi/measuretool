@@ -46,7 +46,7 @@ function DragDrop() {
   );
 
   return (
-    <div style={{position: 'absolute'}}>
+    <div style={{position: 'relative', width: '100vw', left: '50%', transform: 'translate(-50%,0%)'}}>
       <FileUploader
         handleChange={handleChange}
         name="file"

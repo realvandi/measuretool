@@ -50,7 +50,7 @@ const Protractor = () => {
       <div>
         Coord: {mouseCoords.x}, {mouseCoords.y}
       </div>
-      {
+      {/* {
         <ul>
           {Object.entries(pointDictionary).map(([id, position]) => (
             <li key={id}>
@@ -61,7 +61,7 @@ const Protractor = () => {
             Angle = {angle}
           </li>
         </ul>
-      }
+      } */}
 
       <DragDrop />
 
