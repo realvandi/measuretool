@@ -89,6 +89,7 @@ function DragDrop() {
     </div >
   );
 
+    //Test comment
   return (
     <div style={{ position: 'absolute', left: '50%', transform: 'translate(100%,0%)'}}>
       <FileUploader
