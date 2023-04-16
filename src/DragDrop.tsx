@@ -89,9 +89,8 @@ function DragDrop() {
     </div >
   );
 
-    //Test comment
   return (
-    <div style={{ position: 'absolute', left: '50%', transform: 'translate(100%,0%)'}}>
+    <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, 50%)', zIndex: '1'}}>
       <FileUploader
         handleChange={handleChange}
         name="file"

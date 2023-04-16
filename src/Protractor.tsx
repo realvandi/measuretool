@@ -46,7 +46,7 @@ const Protractor = () => {
 
 
   return (
-    <div style={{ position: 'absolute' }}>
+    <div style={{ position: 'relative' }}>
       {/* <div>
         Coord: {mouseCoords.x}, {mouseCoords.y}
       </div> */}
@@ -76,7 +76,7 @@ const Protractor = () => {
           : null
       }
 
-      <div style={{ position: 'absolute' }}>
+      <div style={{ position: 'absolute', zIndex: '3'}}>
         <Xwrapper>
           <DraggableBox id={'1'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
           <DraggableBox id={'2'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />

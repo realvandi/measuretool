@@ -89,7 +89,7 @@ const AngleArc = ({xPos, yPos, angle, pointDic}: AngleArcProps) => {
   }
 
   return (
-    <svg className="arc-svg" style={{zIndex:-1}}>
+    <svg className="arc-svg" style={{zIndex:2}}>
       <ellipse id="arc-shape" ref={shapeRef} />
       <path id="arc-path" ref={pathRef} />
     </svg>
