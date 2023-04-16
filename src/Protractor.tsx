@@ -46,7 +46,7 @@ const Protractor = () => {
 
 
   return (
-    <div style={{ position: 'absolute', left: "50%", transform: "translate(50%, 0%)"}}>
+    <div style={{ position: 'absolute' }}>
       {/* <div>
         Coord: {mouseCoords.x}, {mouseCoords.y}
       </div> */}
