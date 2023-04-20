@@ -22,9 +22,9 @@ function DragDrop() {
     console.log("Checking file integrity..");
 
     const imageFile: File = file as File;
-    console.log("Image file:"+imageFile)
+    console.log("Image file:" + imageFile)
 
-    if(imageFile != null) {
+    if (imageFile != null) {
       if (imageFile == null) {
         console.log("Error: Could not find file, or file is incorrect.")
         return
@@ -36,7 +36,7 @@ function DragDrop() {
           const compressedFile = await imageCompression(imageFile, options);
           console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
           console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
-  
+
           // await uploadToServer(compressedFile); // write your own logic
           console.log("Setting file image to compressed image..")
           await setFile(compressedFile);
@@ -54,43 +54,26 @@ function DragDrop() {
 
 
 
-    
+
 
   };
 
   const fileUploaderStack = (
     <div className="middle-content">
-      {
-        file ?
-          (
-            <div>
-              <img
-                alt="not found"
-                width="300px"
-                src={URL.createObjectURL(file)}
-              />
-            </div >
-          )
-          :
-          (
-            <div>
-              <img src={Protractor} width={"200px"} style={{
-                display: "block",
-                marginLeft: "auto",
-                marginRight: "auto"
-              }
-              } />
-              <div>
-                Drop your files here or click to upload your file
-              </div>
-            </div>
-          )
+      <img src={Protractor} width={"100px"} style={{
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto"
       }
+      } />
+      <div>
+        Drop your files here or click to upload your file
+      </div>
     </div >
   );
 
   return (
-    <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, 50%)', zIndex: '1'}}>
+    <div style={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0%)', zIndex: '1' }}>
       <FileUploader
         handleChange={handleChange}
         name="file"
@@ -106,11 +89,22 @@ function DragDrop() {
         label={"Drop your image here or click to upload an image"}
       />
       {
-        file && (
-          <button onClick={(event) => { handleChange(null) }}>
-            Remove files
-          </button>
-        )
+        file ?
+          (
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '500px' }}>
+              <img
+                alt="Your image for measurement"
+                height="100%"
+                src={URL.createObjectURL(file)}
+                style={{ objectFit: 'cover' }}
+              />
+              <button onClick={(event) => { handleChange(null) }}>
+                Remove files
+              </button>
+            </div >
+          )
+          :
+          null
       }
     </div>
   );
