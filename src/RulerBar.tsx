@@ -35,6 +35,7 @@ const RulerBar: React.FC<RulerProps> = ({ width, height, units }) => {
     if (!container) return;
 
     const dpi = window.devicePixelRatio;
+    console.log(window.devicePixelRatio);
     const pixelsPerUnit = 96 / 2.54; // assuming 96 DPI, 2.54 cm in an inch
 
     // calculate the size of the ruler in pixels
