@@ -44,14 +44,10 @@
   border-radius: 30px;
   border-style: solid;
   padding: 1em;
-  margin: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  left: 50%;
-  transform: translate(50%, 0%);
 }
 
 /* Angle arc */
@@ -72,4 +68,12 @@
   stroke-dasharray: 30,15;
   stroke-miterlimit: 10;
   stroke-linejoin: miter;
+}
+
+.centermaster {
+  margin: 'auto auto';
+      display: 'flex';
+      flex-direction: 'column';
+      justify-content: 'center';
+      align-items: 'center';
 }

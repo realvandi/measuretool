@@ -46,34 +46,39 @@ function DragDrop() {
       }
     } else {
       console.log("Image file is null");
+      console.log("File: " + file)
       setFile(null);
     }
     // console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
     // console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
 
-
-
-
-
-
   };
 
   const fileUploaderStack = (
-    <div className="middle-content">
-      <img src={Protractor} width={"100px"} style={{
-        display: "block",
-        marginLeft: "auto",
-        marginRight: "auto"
-      }
-      } />
-      <div>
+    <div style={{ 
+      position: 'absolute',
+      margin: 'auto',
+      border: '10px solid black', 
+      height: '10em', 
+      width: '20em', 
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'blue',
+      transform: 'translate(-50%,-50%)'
+  }}>
+      <img src={Protractor} height="50%" />
+      <div style={{ fontSize: '0.3em' }} >
         Drop your files here or click to upload your file
       </div>
-    </div >
+  </div>
   );
 
   return (
-    <div style={{ position: 'absolute', left: '50%', transform: 'translate(-50%, 0%)', zIndex: '1' }}>
+    <div style={{ position: 'absolute', zIndex: '1', height: '100%', width: '100%', backgroundColor: 'red',
+   display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+      
       <FileUploader
         handleChange={handleChange}
         name="file"
@@ -83,7 +88,6 @@ function DragDrop() {
         hoverTitle="Drop Here"
         onDrop={(file: any) => console.log("dropped:" + file)}
         onSelect={(file: any) => console.log("selected:" + file)}
-        dropMessageStyle={{ backgroundColor: 'red' }}
         onSizeError={(error: any) => { console.log(error) }}
         onTypeError={(error: any) => { console.log(error) }}
         label={"Drop your image here or click to upload an image"}

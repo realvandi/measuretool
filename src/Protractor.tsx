@@ -46,7 +46,7 @@ const Protractor = () => {
 
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', backgroundColor: 'purple', height: '100vh', width: '100vw' }}>
       {/* <div>
         Coord: {mouseCoords.x}, {mouseCoords.y}
       </div> */}
