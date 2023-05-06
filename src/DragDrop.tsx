@@ -5,11 +5,19 @@ import Protractor from "./protractor.png";
 import './App.css';
 import imageCompression from "browser-image-compression";
 
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
 const fileTypes = ["JPG", "PNG", "GIF", "JPEG"];
+
+const imageOffsetInit = "0%"
+const imageOffsetWithImage = "-100px"
 
 function DragDrop() {
 
   const [file, setFile] = useState<File | null>(null);
+
+  console.log(file);
+  const imgOffset = (file != null) ? imageOffsetWithImage : imageOffsetInit
 
   const handleChange = async (file: React.SetStateAction<File | null>) => {
 
@@ -66,7 +74,9 @@ function DragDrop() {
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: 'blue',
-      transform: 'translate(-50%,-50%)'
+      transform: 'translate(-50%,-50%)',
+      top: imgOffset,
+      transition: 'all 0.2s ease-in-out'
   }}>
       <img src={Protractor} height="50%" />
       <div style={{ fontSize: '0.3em' }} >
@@ -78,7 +88,6 @@ function DragDrop() {
   return (
     <div style={{ position: 'absolute', zIndex: '1', height: '100%', width: '100%', backgroundColor: 'red',
    display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
-      
       <FileUploader
         handleChange={handleChange}
         name="file"
@@ -95,7 +104,7 @@ function DragDrop() {
       {
         file ?
           (
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '500px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '500px' }}>
               <img
                 alt="Your image for measurement"
                 height="100%"
@@ -106,6 +115,7 @@ function DragDrop() {
                 Remove files
               </button>
             </div >
+            
           )
           :
           null
