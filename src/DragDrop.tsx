@@ -101,6 +101,7 @@ function DragDrop() {
         onTypeError={(error: any) => { console.log(error) }}
         label={"Drop your image here or click to upload an image"}
       />
+      <p>{file ? `File name: ${file.name}` : "no files uploaded yet"}</p>
       {
         file ?
           (
@@ -111,7 +112,7 @@ function DragDrop() {
                 src={URL.createObjectURL(file)}
                 style={{ objectFit: 'cover' }}
               />
-              <button onClick={(event) => { handleChange(null) }}>
+              <button onClick={(event) => { handleChange(null); console.log("removed files") }}>
                 Remove files
               </button>
             </div >
