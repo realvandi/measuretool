@@ -15,8 +15,8 @@ const Protractor = () => {
   const [angle, setAngle] = useState<number>(0);
 
   const [file, setFile] = useState<File | null>(null);
+  const yPointOffsetMagicNumber = 60;
 
-  const yPointOffsetMagicNumber = 35;
 
   useEffect(() => {
     const handleWindowMouseMove = (event: { clientX: any; clientY: any; }) => {
@@ -48,7 +48,7 @@ const Protractor = () => {
 
 
   return (
-    <div style={{ position: 'relative', backgroundColor: 'purple', height: '100vh', width: '100vw' }}>
+    <div style={{ position: 'relative', height: '100vh', width: '100vw' }}>
       {/* <div>
         Coord: {mouseCoords.x}, {mouseCoords.y}
       </div> */}
@@ -65,21 +65,16 @@ const Protractor = () => {
         </ul>
       } */}
 
-      <TransformWrapper>
-        <TransformComponent>
-          <img src="protractor.png" alt="test" />
-        </TransformComponent>
-      </TransformWrapper>
-
       <DragDrop />
 
       {
         pointDictionary['2'] ?
           <div style={{
             position: 'absolute', left: pointDictionary['2'].x, top: pointDictionary['2'].y + yPointOffsetMagicNumber,
-            zIndex: '10', backgroundColor:'whitesmoke', border: '10 10 10'
+            zIndex: '10', backgroundColor:'#ffffffaf', padding: '5px', borderRadius: '3px', boxShadow: '1px 2px 9px #000000',
+            fontWeight: 'bold'
           }}>
-            {angle}
+            {angle.toFixed(2)}°
           </div>
           : null
       }

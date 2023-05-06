@@ -66,17 +66,17 @@ function DragDrop() {
     <div style={{ 
       position: 'absolute',
       margin: 'auto',
-      border: '10px solid black', 
+      border: '3px solid black', 
       height: '10em', 
       width: '20em', 
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'blue',
       transform: 'translate(-50%,-50%)',
       top: imgOffset,
-      transition: 'all 0.2s ease-in-out'
+      transition: 'all 0.2s ease-in-out',
+      borderRadius: '10px'
   }}>
       <img src={Protractor} height="50%" />
       <div style={{ fontSize: '0.3em' }} >
@@ -86,7 +86,7 @@ function DragDrop() {
   );
 
   return (
-    <div style={{ position: 'absolute', zIndex: '1', height: '100%', width: '100%', backgroundColor: 'red',
+    <div style={{ position: 'absolute', zIndex: '1', height: '100%', width: '100%',
    display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
       <FileUploader
         handleChange={handleChange}
@@ -101,7 +101,6 @@ function DragDrop() {
         onTypeError={(error: any) => { console.log(error) }}
         label={"Drop your image here or click to upload an image"}
       />
-      <p>{file ? `File name: ${file.name}` : "no files uploaded yet"}</p>
       {
         file ?
           (
