@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div style={{overflow: 'hidden'}}>
+    <div>
       <div style={{ position: 'absolute', zIndex: '100'}}>
           <Link to='/'>Home</Link>
       </div>

@@ -6,6 +6,8 @@ import { PointDictionary, position } from "./GeneralTypes";
 import { getAngle } from "./Tools";
 import AngleArc from "./AngleArc";
 
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+
 const Protractor = () => {
 
   const [mouseCoords, setMouseCoords] = useState<position>({ x: 0, y: 0 });
@@ -63,20 +65,26 @@ const Protractor = () => {
         </ul>
       } */}
 
+      <TransformWrapper>
+        <TransformComponent>
+          <img src="protractor.png" alt="test" />
+        </TransformComponent>
+      </TransformWrapper>
+
       <DragDrop />
 
       {
         pointDictionary['2'] ?
           <div style={{
             position: 'absolute', left: pointDictionary['2'].x, top: pointDictionary['2'].y + yPointOffsetMagicNumber,
-            width: '1em', height: '1em', zIndex: '10'
+            zIndex: '10', backgroundColor:'whitesmoke', border: '10 10 10'
           }}>
             {angle}
           </div>
           : null
       }
 
-      <div style={{ position: 'absolute', zIndex: '3'}}>
+      <div style={{ position: 'absolute', zIndex: '3' }}>
         <Xwrapper>
           <DraggableBox id={'1'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
           <DraggableBox id={'2'} pointDictionary={pointDictionary} setPointDictionary={setPointDictionary} />
@@ -87,8 +95,8 @@ const Protractor = () => {
       </div>
 
       {
-      pointDictionary['2'] != null ?
-        <AngleArc xPos={pointDictionary['2'].x} yPos={pointDictionary['2'].y} angle={angle} pointDic={pointDictionary}></AngleArc> : null
+        pointDictionary['2'] != null ?
+          <AngleArc xPos={pointDictionary['2'].x} yPos={pointDictionary['2'].y} angle={angle} pointDic={pointDictionary}></AngleArc> : null
       }
 
     </div>
