@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 function App() {
   return (
     <div>
-      <ul>
-        <li><Link to='/'>Home</Link></li>
-      </ul>
+      <div style={{ position: 'absolute', zIndex: '100'}}>
+          <Link to='/'>Home</Link>
+      </div>
       <Main />
     </div>
   );
