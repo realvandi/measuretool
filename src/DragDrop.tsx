@@ -75,10 +75,14 @@ function DragDrop() {
       justifyContent: 'center',
 
       transform:ddOffset,
-      
+
       transition: 'all 0.2s ease-in-out',
+
       zIndex: '2',
-      backgroundColor: 'rgba(255, 255, 255, 0.75)'
+
+      backgroundColor: 'rgba(255, 255, 255, 0.75)',
+      border: '5px dashed black',
+      borderRadius: '10%'
     }}>
       <img src={Protractor} height="50%" />
       <div style={{ fontSize: '0.3em' }} >
@@ -123,9 +127,13 @@ function DragDrop() {
                     <TransformComponent wrapperStyle={{ height: '100vh', width: '100vw', position: 'absolute' }}>
                       <img src={URL.createObjectURL(file)} />
                     </TransformComponent>
+                    <div style={{ position: 'relative', zIndex: '1', width: '100%', textAlign: 'center', top: '100%', transform: 'translateY(-100%)' }}>
+                      <button onClick={() => zoomIn()}>HELLO!</button>
+                    </div>
                   </React.Fragment>
                 )}
               </TransformWrapper>
+              
             </div>
           )
           :
