@@ -76,7 +76,7 @@ function DragDrop() {
 
       transform:ddOffset,
 
-      transition: 'all 0.2s ease-in-out',
+      transition: 'all 0.4s ease-in-out',
 
       zIndex: '2',
 
@@ -128,7 +128,7 @@ function DragDrop() {
                       <img src={URL.createObjectURL(file)} />
                     </TransformComponent>
                     <div style={{ position: 'relative', zIndex: '1', width: '100%', textAlign: 'center', top: '100%', transform: 'translateY(-100%)' }}>
-                      <button onClick={() => zoomIn()}>HELLO!</button>
+                      <button onClick={() => handleChange(null)}>Remove Image</button>
                     </div>
                   </React.Fragment>
                 )}
