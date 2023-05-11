@@ -66,19 +66,19 @@ function DragDrop() {
   const fileUploaderStack = (
     <div style={{
       position: 'absolute',
-      margin: 'auto',
-      border: '3px solid black',
       height: '10em',
       width: '20em',
+      
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
       alignItems: 'center',
-      transform: 'translate(-50%,-50%)',
-      top: imgOffset,
+      justifyContent: 'center',
+
+      transform:'translate(calc(50vw - 50%), calc(50vh - 50%))',
+      
       transition: 'all 0.2s ease-in-out',
-      borderRadius: '10px',
-      zIndex: '2'
+      zIndex: '2',
+      backgroundColor: 'rgba(255, 255, 255, 0.75)'
     }}>
       <img src={Protractor} height="50%" />
       <div style={{ fontSize: '0.3em' }} >
@@ -89,8 +89,7 @@ function DragDrop() {
 
   return (
     <div style={{
-      position: 'absolute', height: '100%', width: '100%',
-      display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'
+      position: 'absolute', height: '100vh', width: '100vw', backgroundColor: 'rgba(200, 200, 200, 1)'
     }}>
       <FileUploader
         handleChange={handleChange}
@@ -103,44 +102,31 @@ function DragDrop() {
         onSelect={(file: any) => console.log("selected:" + file)}
         onSizeError={(error: any) => { console.log(error) }}
         onTypeError={(error: any) => { console.log(error) }}
-        label={"Drop your image here or click to upload an image"}
       />
       {
         file ?
           (
-            // <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '500px' }}>
-            //   <img
-            //     alt="Your image for measurement"
-            //     height="100%"
-            //     src={URL.createObjectURL(file)}
-            //     style={{ objectFit: 'cover' }}
-            //   />
-            //   <button onClick={(event) => { handleChange(null); console.log("removed files") }}>
-            //     Remove files
-            //   </button>
-
-              <div style={{ position: 'absolute', zIndex: '0', height: '100vh', width: '100vw' }}>
-                <TransformWrapper
-                  initialScale={1}
-                  initialPositionX={0}
-                  initialPositionY={0}
-                  limitToBounds={false}
-                > 
-                  {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
-                    <React.Fragment>
-                      <div style={{ position:'absolute', zIndex: '1', width: '100%', textAlign: 'center' }}>
-                        <button onClick={() => zoomIn()}>+</button>
-                        <button onClick={() => zoomOut()}>-</button>
-                        <button onClick={() => resetTransform()}>x</button>
-                      </div>
-                      <TransformComponent wrapperStyle={{ height: '100%', width: '100%' }}>
-                        <img src={URL.createObjectURL(file)} />
-                      </TransformComponent>
-                    </React.Fragment>
-                  )}
-                </TransformWrapper>
-              </div>
-            // {/* </div > */}
+            <div style={{ position: 'absolute', zIndex: '0', height: '100vh', width: '100vw' }}>
+              <TransformWrapper
+                initialScale={1}
+                initialPositionX={0}
+                initialPositionY={0}
+                limitToBounds={false}
+              >
+                {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+                  <React.Fragment>
+                    <div style={{ position: 'absolute', zIndex: '1', width: '100%', textAlign: 'center' }}>
+                      <button onClick={() => zoomIn()}>+</button>
+                      <button onClick={() => zoomOut()}>-</button>
+                      <button onClick={() => resetTransform()}>x</button>
+                    </div>
+                    <TransformComponent wrapperStyle={{ height: '100vh', width: '100vw', position: 'absolute' }}>
+                      <img src={URL.createObjectURL(file)} />
+                    </TransformComponent>
+                  </React.Fragment>
+                )}
+              </TransformWrapper>
+            </div>
           )
           :
           null
