@@ -10,15 +10,15 @@ import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 
 const fileTypes = ["JPG", "PNG", "GIF", "JPEG"];
 
-const imageOffsetInit = "0%"
-const imageOffsetWithImage = "-100px"
+const ddOffsetInit = 'translate(calc(50vw - 50%), calc(50vh - 50%))'
+const ddOffsetWithImage = 'translate(calc(50vw - 50%), calc(20%))'
 
 function DragDrop() {
 
   const [file, setFile] = useState<File | null>(null);
 
   console.log(file);
-  const imgOffset = (file != null) ? imageOffsetWithImage : imageOffsetInit
+  const ddOffset = (file != null) ? ddOffsetWithImage : ddOffsetInit
 
   const handleChange = async (file: React.SetStateAction<File | null>) => {
 
@@ -74,7 +74,7 @@ function DragDrop() {
       alignItems: 'center',
       justifyContent: 'center',
 
-      transform:'translate(calc(50vw - 50%), calc(50vh - 50%))',
+      transform:ddOffset,
       
       transition: 'all 0.2s ease-in-out',
       zIndex: '2',
