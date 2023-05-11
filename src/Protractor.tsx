@@ -8,6 +8,10 @@ import AngleArc from "./AngleArc";
 
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
+import ProtractorImg from './protractor.png'
+
+import React from "react";
+
 const Protractor = () => {
 
   const [mouseCoords, setMouseCoords] = useState<position>({ x: 0, y: 0 });
@@ -16,7 +20,6 @@ const Protractor = () => {
 
   const [file, setFile] = useState<File | null>(null);
   const yPointOffsetMagicNumber = 60;
-
 
   useEffect(() => {
     const handleWindowMouseMove = (event: { clientX: any; clientY: any; }) => {
@@ -43,7 +46,6 @@ const Protractor = () => {
     if (firstPointPosition && secondPointPosition && thirdPointPosition) {
       setAngle(getAngle(firstPointPosition, secondPointPosition, thirdPointPosition))
     }
-
   }, [pointDictionary])
 
 
@@ -71,7 +73,7 @@ const Protractor = () => {
         pointDictionary['2'] ?
           <div style={{
             position: 'absolute', left: pointDictionary['2'].x, top: pointDictionary['2'].y + yPointOffsetMagicNumber,
-            zIndex: '10', backgroundColor:'#ffffffaf', padding: '5px', borderRadius: '3px', boxShadow: '1px 2px 9px #000000',
+            zIndex: '10', backgroundColor: '#ffffffaf', padding: '5px', borderRadius: '3px', boxShadow: '1px 2px 9px #000000',
             fontWeight: 'bold'
           }}>
             {angle.toFixed(2)}°
