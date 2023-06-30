@@ -133,7 +133,6 @@ function DragDrop() {
                   </React.Fragment>
                 )}
               </TransformWrapper>
-              
             </div>
           )
           :
