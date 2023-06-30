@@ -77,7 +77,6 @@ function DragDrop() {
       transform:ddOffset,
 
       transition: 'all 0.4s ease-in-out',
-
       zIndex: '2',
 
       backgroundColor: 'rgba(255, 255, 255, 0.75)',
